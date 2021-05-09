@@ -1,38 +1,200 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #17202c;
+  --bg-color-lighter: #2a3b52;
+  --accent-color: #3e9978;
+  --accent-color-lighter: #4dbf96;
+  --gray: #585f67;
+  --gray-lighter: #7a848f;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-size: 16px;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  flex-direction: column;
+  background-color: var(--bg-color);
 }
 
-.App-link {
-  color: #61dafb;
+header {
+  width: 100%;
+  display: flex;
+  padding: 0.8em 1em;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-color-lighter);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header .brand {
+  letter-spacing: 1px;
+}
+
+header .sign-out {
+  border: none;
+  padding: 1em;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.5em;
+  background-color: var(--accent-color);
+}
+
+header .sign-out:hover,
+header .sign-out:focus,
+header .sign-out:active {
+  background-color: var(--accent-color-lighter);
+}
+
+header .fun {
+  font-size: 1.5rem;
+}
+
+section.chatroom {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  overflow-y: hidden;
+  flex-direction: column;
+}
+
+section.chatroom form {
+  position: relative;
+  padding: 0.8em 1em;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+section.chatroom form input {
+  width: 100%;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border-radius: 0.3em;
+  padding: 0.8em 5em 0.8em 1em;
+  border: 2px solid var(--gray);
+  background-color: transparent;
+}
+
+section.chatroom form button {
+  top: 1.4em;
+  right: 1.6em;
+  border: none;
+  outline: none;
+  bottom: 1.4em;
+  color: white;
+  padding: 0 1em;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 0.3em;
+  background-color: var(--accent-color);
+}
+
+section.chatroom form button:hover,
+section.chatroom form button:focus,
+section.chatroom form button:active {
+  background-color: var(--accent-color-lighter);
+}
+
+section.chatroom main {
+  gap: 1em;
+  flex-grow: 1;
+  display: flex;
+  padding: 2em 1em 0;
+  overflow-y: scroll;
+  flex-direction: column;
+}
+
+section.chatroom main .message {
+  gap: 0.8em;
+  display: flex;
+}
+
+section.chatroom main .message.sent {
+  flex-direction: row-reverse;
+}
+
+section.chatroom main .message .avatar {
+  max-height: 2.5em;
+  border-radius: 50%;
+}
+
+section.chatroom main .message .msg-wrapper {
+  gap: 0.3em;
+  display: flex;
+  max-width: 60%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+section.chatroom main .message.sent .msg-wrapper {
+  align-items: flex-end;
+}
+
+section.chatroom main .message .msg-wrapper .msg {
+  color: #ddd;
+  padding: 0.6em 0.8em;
+  border-radius: 0.5em;
+  background-color: var(--gray);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+section.chatroom main .message.sent .msg-wrapper .msg {
+  color: #eee;
+  background-color: var(--accent-color);
+}
+
+section.chatroom main .message .msg-wrapper .msg-info {
+  display: flex;
+}
+
+section.chatroom main .message .msg-wrapper .msg-info p {
+  font-size: 0.8rem;
+  color: var(--gray-lighter);
+}
+
+section.signIn {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section.signIn .sign-in {
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 1em 1.2em;
+  margin-bottom: 1.5em;
+  border-radius: 0.3em;
+  background-color: var(--accent-color);
+}
+
+section.signIn .sign-in:hover,
+section.signIn .sign-in:focus,
+section.signIn .sign-in:active {
+  background-color: var(--accent-color-lighter);
 }
